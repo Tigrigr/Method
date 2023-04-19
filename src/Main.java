@@ -37,19 +37,16 @@ public class Main {
         }
     }
 
-    public static void calculateDaysDelivery(int deliveryDistance) {
-        byte daysDelivery = 1;
+    public static int calculateDaysDelivery(int deliveryDistance) {
+        byte daysDelivery = 0;
         if (deliveryDistance <= 20) {
-            System.out.println("Потребуется дней: " + daysDelivery);
+            daysDelivery = 1;
         } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
             daysDelivery = 2;
-            System.out.println("Потребуется дней: " + daysDelivery);
-        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
+        } else if(deliveryDistance > 60 && deliveryDistance <= 100) {
             daysDelivery = 3;
-            System.out.println("Потребуется дней: " + daysDelivery);
-        } else {
-            System.out.println("Доставки нет");
         }
+        return daysDelivery;
     }
 
 
@@ -78,7 +75,7 @@ public class Main {
         System.out.print("Введите расстояние: ");
         Scanner scanner = new Scanner(System.in);
         int deliveryDistance = scanner.nextInt();
-        calculateDaysDelivery(deliveryDistance);
+        System.out.println("Доставят за " + calculateDaysDelivery(deliveryDistance) + " дня.");
     }
 
 }
