@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         task1();
         task2();
+        task3();
 
     }
 
@@ -21,18 +22,33 @@ public class Main {
 
     public static void getDeviceInfo(int deviceYear, int deviceOs) {
         int currentYear = LocalDate.now().getYear();
-        if(currentYear<=deviceYear){
-            if(deviceOs == 0){
+        if (currentYear <= deviceYear) {
+            if (deviceOs == 0) {
                 System.out.println("Установите версию приложения для iOS по ссылке.");
-            }else {
+            } else {
                 System.out.println("Установите версию приложения для Android по ссылке.");
             }
-        }else {
-            if(deviceOs == 0){
+        } else {
+            if (deviceOs == 0) {
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке.");
-            }else {
+            } else {
                 System.out.println("Установите облегченную версию приложения для Android по ссылке.");
             }
+        }
+    }
+
+    public static void calculateDaysDelivery(int deliveryDistance) {
+        byte daysDelivery = 1;
+        if (deliveryDistance <= 20) {
+            System.out.println("Потребуется дней: " + daysDelivery);
+        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
+            daysDelivery = 2;
+            System.out.println("Потребуется дней: " + daysDelivery);
+        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
+            daysDelivery = 3;
+            System.out.println("Потребуется дней: " + daysDelivery);
+        } else {
+            System.out.println("Доставки нет");
         }
     }
 
@@ -44,6 +60,7 @@ public class Main {
         int year = scanner.nextInt();
         calculateHightYear(year);
     }
+
     public static void task2() {
         System.out.println();
         System.out.println("Задача 2");
@@ -53,6 +70,15 @@ public class Main {
         System.out.print("Введите модель операционной системы, 0 - iOS, 1 - Android: ");
         int deviceOs = scanner.nextInt();
         getDeviceInfo(deviceYear, deviceOs);
+    }
+
+    public static void task3() {
+        System.out.println();
+        System.out.println("Задача 3");
+        System.out.print("Введите расстояние: ");
+        Scanner scanner = new Scanner(System.in);
+        int deliveryDistance = scanner.nextInt();
+        calculateDaysDelivery(deliveryDistance);
     }
 
 }
